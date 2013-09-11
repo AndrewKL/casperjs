@@ -759,6 +759,7 @@ Tester.prototype.assertSelectorContains = function assertSelectorHasText(selecto
  * @param  String   message       Test description
  * @return Object                 An assertion result object
  */
+//TODO: test this
 Tester.prototype.assertContains = function assertContains(text, containsText, message) {
     "use strict";
     var textFound = text.indexOf(text) !== -1;
@@ -770,6 +771,19 @@ Tester.prototype.assertContains = function assertContains(text, containsText, me
             containsText: containsText
         }
     });
+};
+
+/**
+ * Asserts that second text exists in the first text ignoring case.
+ *
+ * @param  String   text          Selector expression
+ * @param  String   containsText  Text to be found
+ * @param  String   message       Test description
+ * @return Object                 An assertion result object
+ */
+//TODO test this
+Tester.prototype.assertContainsCaseInsensitive = function assertContains(text, containsText, message) {
+    return this.assertContains(text.toLowerCase(), containsText.toLowerCase(), message);
 };
 
 /**
