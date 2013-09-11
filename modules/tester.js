@@ -752,6 +752,27 @@ Tester.prototype.assertSelectorContains = function assertSelectorHasText(selecto
 };
 
 /**
+ * Asserts that second text exists in the first text.
+ *
+ * @param  String   text          Selector expression
+ * @param  String   containsText  Text to be found
+ * @param  String   message       Test description
+ * @return Object                 An assertion result object
+ */
+Tester.prototype.assertContains = function assertContains(text, containsText, message) {
+    "use strict";
+    var textFound = text.indexOf(text) !== -1;
+    return this.assert(textFound, message, {
+        type: "assertContains",
+        standard: f('Found "%s" within the text "%s"', containsText, text),
+        values: {
+            text: text,
+            containsText: containsText
+        }
+    });
+};
+
+/**
  * Asserts that given text does not exist in the provided selector.
  *
  * @param  String   selector  Selector expression
